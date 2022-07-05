@@ -87,3 +87,18 @@ The only change from their scripts is that we use an Adam optimizer with
 learning rate `1e-3` and no weight decay for the datasets of discrete features,
 which is used also in the training of generator models, while the original
 scripts use different optimizers for the two classifiers.
+
+## Citation
+
+Please cite the followiing paper if you use our code:
+```
+@inproceedings{YooJJK22,
+  author    = {Jaemin Yoo and
+               Hyunsik Jeon and
+               Jinhong Jung and
+               U Kang},
+  title     = {Accurate Node Feature Estimation with Structured Variational Graph Autoencoder},
+  booktitle = {KDD},
+  year      = {2022},
+}
+```
