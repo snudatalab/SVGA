@@ -1,7 +1,8 @@
 # Structured Variational Graph Autoencoder
 
-This project is a PyTorch implementation of *Accurate Node Feature Estimation
-with Structured Variational Graph Autoencoder* (KDD 2022).
+This project is a PyTorch implementation of [Accurate Node Feature Estimation
+with Structured Variational Graph Autoencoder](https://arxiv.org/abs/2206.04516)
+(KDD 2022).
 
 ## Prerequisites
 
