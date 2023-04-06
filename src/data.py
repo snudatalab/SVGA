@@ -20,6 +20,7 @@ import numpy as np
 import torch
 from sklearn.model_selection import train_test_split
 from torch_geometric import datasets
+from torch_geometric.utils import to_undirected
 from torch_sparse import SparseTensor
 
 
@@ -94,9 +95,10 @@ def load_arxiv(root):
     """
     Load the Arxiv dataset, which is not included in PyG.
     """
-    features = torch.from_numpy(np.load(f'{root}/ArXiv/x.npy'))
-    labels = torch.from_numpy(np.load(f'{root}/ArXiv/y.npy'))
-    edge_index = torch.from_numpy(np.load(f'{root}/ArXiv/edge_index.npy'))
+    features = torch.from_numpy(np.loadtxt(f'{root}/ArXiv/raw/node-feat.csv.gz', delimiter=',', dtype=np.float32))
+    labels = torch.from_numpy(np.loadtxt(f'{root}/ArXiv/raw/node-label.csv.gz', delimiter=',', dtype=np.int64))
+    edge_index = torch.from_numpy(np.loadtxt(f'{root}/ArXiv/raw/edge.csv.gz', delimiter=',', dtype=np.int64))
+    edge_index = to_undirected(edge_index.t())
     return Namespace(data=Namespace(x=features, y=labels, edge_index=edge_index))
 
 
